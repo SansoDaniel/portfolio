@@ -11,22 +11,25 @@
 }
 
 /* ── PAGE LAYOUT ── */
-.page { max-width: 1100px; margin: 0 0; padding: 0 40px; }
+.page { margin: 0 0; padding: 0 40px; }
 
 /* ── HERO ── */
 .hero {
     min-height: calc(100vh - 57px);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 60px;
     padding: 60px 0 80px;
 }
-.hero-left { flex: 1; max-width: 560px; }
+.hero-left {
+    flex: 1;
+    max-width: 720px;
+}
 .hero-right {
     flex-shrink: 0;
-    width: 340px;
-    height: 380px;
+    width: 420px;
+    height: 460px;
     position: relative;
 }
 
@@ -194,7 +197,7 @@
     line-height: 1.75;
     margin-bottom: 24px;
     font-weight: 300;
-    max-width: 460px;
+    max-width: 720px;
 }
 .hero-meta {
     display: flex;
@@ -371,7 +374,7 @@ section { padding: 80px 0; border-top: 1px solid var(--gray-200); }
 /* ── CERTS ── */
 .certs-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, .3fr));
     gap: 16px;
 }
 .cert-card {
@@ -469,7 +472,7 @@ footer {
 .hero-right { opacity: 0; animation: fadeUp 0.6s 0.3s ease forwards; }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 720px) {
+@media (max-width: 820px) {
     .hero { flex-direction: column-reverse; gap: 32px; padding: 40px 0 60px; min-height: auto; }
     .hero-right { width: 100%; height: 260px; }
     .projects-grid { grid-template-columns: 1fr; }

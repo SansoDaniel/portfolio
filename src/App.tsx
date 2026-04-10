@@ -326,7 +326,7 @@ function App() {
                                   <span className="tag">ObjectBox/PostgresSQL</span>
                                   <span className="tag">API Backend (work in progress)</span>
                               </div>
-                              <a href="#" className="project-arrow">Vedi progetto →</a>
+                              {/*<a href="#" className="project-arrow">Vedi progetto →</a>*/}
                           </div>
                       </div>
 
