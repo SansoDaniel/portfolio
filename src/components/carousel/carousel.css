@@ -1,6 +1,7 @@
 .carousel-wrap {
     position: relative;
     display: flex;
+    overflow-x: hidden;
 }
 
 .carousel-wrap::before {

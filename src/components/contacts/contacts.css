@@ -1,0 +1,68 @@
+.form-wrap {
+    position: relative;
+    max-width: 620px;
+    gap: 0.5rem;
+}
+
+.form-error {
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+}
+
+.border-error {
+    border: 1px solid red;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+}
+
+.form-item input, .form-item textarea {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--black);
+    background: var(--white);
+    border: 1px solid var(--gray-600);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.18s;
+    resize: none;
+}
+.form-item input::placeholder, .form-item textarea::placeholder {
+    color: var(--gray-200);
+}
+.form-item input:focus, .form-item textarea:focus {
+    border-color: var(--gray-900);
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.06);
+}
+.form-item textarea { height: 110px; line-height: 1.6; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.submit-hint {
+    font-size: 12px;
+    color: var(--gray-600);
+}
