@@ -10,7 +10,7 @@ interface IContacts {
 }
 
 const Contacts: React.FC = () => {
-    const initialValues: IContacts = {email: "", name: "", message: "", };
+    const initialValues: IContacts = {email: "", name: "", message: ""};
 
 
     const validateEmail = (email?: string | null) => {

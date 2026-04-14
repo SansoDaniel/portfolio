@@ -10,7 +10,7 @@ const Navbar = ():JSX.Element => {
 
     const calculateHeight = () => {
         const navEl = navRef.current;
-        if (!navEl) return 260;
+        if (!navEl) return 60;
 
         const isMobile = window.matchMedia('(max-width: 720px)').matches;
         if (isMobile) {
@@ -23,7 +23,7 @@ const Navbar = ():JSX.Element => {
                 return topBar + contentHeight + padding;
             }
         }
-        return 260;
+        return 60;
     };
 
     const createTimeline = () => {
