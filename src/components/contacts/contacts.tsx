@@ -1,18 +1,19 @@
 import * as React from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import "./contacts.css"
+import emailjs from "@emailjs/browser";
 
 interface IContacts {
-    email: string;
-    name: string;
-    message: string;
+    email?: string | null;
+    name?: string | null;
+    message?: string | null;
 }
 
 const Contacts: React.FC = () => {
     const initialValues: IContacts = {email: "", name: "", message: "", };
 
 
-    const validateEmail = (email: string | undefined) => {
+    const validateEmail = (email?: string | null) => {
         if (!email) {
             return 'Required';
         } else if (
@@ -20,17 +21,17 @@ const Contacts: React.FC = () => {
         ) {
             return 'Invalid email address';
         }
-        return ""
+        return
     }
 
-    const validateName = (name: string) => {
+    const validateName = (name?: string | null) => {
         if (!name) return 'Required';
-        return ""
+        return
     }
 
-    const validateMessage = (message: string) => {
+    const validateMessage = (message?: string | null) => {
         if (!message) return 'Required';
-        return ""
+        return
     }
 
 
@@ -38,18 +39,34 @@ const Contacts: React.FC = () => {
         <Formik
             initialValues={initialValues}
             validate={values => {
-                const errors: IContacts = {email: "", name: "", message: "", };
-                errors.email = validateEmail(values.email);
-                errors.name = validateName(values.name);
-                errors.message = validateMessage(values.message);
+                const errors: IContacts = {};
+                const emailValidation = validateEmail(values.email);
+                if (emailValidation) {
+                    errors.email = emailValidation;
+                }
+
+                const nameValidation = validateName(values.name);
+
+                if (nameValidation) {
+                    errors.name = nameValidation;
+                }
+
+                const messageValidation = validateMessage(values.message);
+
+                if (messageValidation) {
+                    errors.message = messageValidation;
+                }
 
                 return errors;
             }}
             onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                    alert(JSON.stringify(values, null, 2));
+                emailjs.send("service_41k85mj", "template_at1qz8b", {
+                    "email": values.email,
+                    "name": values.name,
+                    "message": values.message,
+                }, "tB-dCPMNHL0DRMNl-").then(()=> {
                     setSubmitting(false);
-                }, 400);
+                });
             }}
         >
             {({ isSubmitting }) => (
@@ -61,8 +78,8 @@ const Contacts: React.FC = () => {
                             <ErrorMessage name="email" component="div" className={"form-error"} />
                         </div>
                         <div className={"form-item"}>
-                            <label htmlFor="nome" className="form-label">Nome*</label>
-                            <Field type="text" name="nome" placeholder={'Nome'} />
+                            <label htmlFor="name" className="form-label">Nome*</label>
+                            <Field type="text" name="name" placeholder={'Nome'} />
                             <ErrorMessage name="name" component="div" className={"form-error"} />
                         </div>
                     </div>
