@@ -60,11 +60,11 @@ const Contacts: React.FC = () => {
                 return errors;
             }}
             onSubmit={(values, { setSubmitting }) => {
-                emailjs.send("service_41k85mj", "template_at1qz8b", {
+                emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID, {
                     "email": values.email,
                     "name": values.name,
                     "message": values.message,
-                }, "tB-dCPMNHL0DRMNl-").then(()=> {
+                }, import.meta.env.VITE_EMAILJS_PUBLIC_KEY).then(()=> {
                     setSubmitting(false);
                 });
             }}
